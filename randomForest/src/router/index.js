@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Login from '../components/Auth/Login'
+import client from '../components/lk/client'
 import Registration from '../components/Auth/Registration'
 import AuthGuard from './authGuard'
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/registration',
       name: 'reg',
       component: Registration
+    },
+    {
+      path: '/client',
+      name: 'client',
+      component: client
     },
 
   ],

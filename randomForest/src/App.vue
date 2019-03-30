@@ -186,12 +186,12 @@
           this.$storage.set('test', {key: this.$store.getters.user.id}, {ttl: 60 * 1000})
           if (this.$store.getters.getUser.hasOwnProperty('manager_id')) {
             return [
-              {title: 'Панель администрирования', icon: 'perm_identity', url: '/admin', count: ''},
+              {title: 'Кабинет страховой компании', icon: 'perm_identity', url: '/admin', count: ''},
             ]
           } else {
             return [
-              {title: 'Личный кабинет', icon: 'perm_identity', url: '/orders', count: ''},
-              {title: 'Корзина', icon: 'shopping_cart', url: '/list', count: `${this.getTovars}`},
+              {title: 'Кабинет клиента', icon: 'perm_identity', url: '/client', count: ''},
+              // {title: 'Корзина', icon: 'shopping_cart', url: '/list', count: `${this.getTovars}`},
             ]
           }
 
