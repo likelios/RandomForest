@@ -413,7 +413,7 @@
         },
         {
             "name": "client",
-            "description": " API для работы с клиентом\n"
+            "description": "ClientController API для работы с клиентом\n"
         },
         {
             "name": "company",

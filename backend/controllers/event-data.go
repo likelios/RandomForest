@@ -3,17 +3,11 @@ package controllers
 import (
 	query "RandomForest/backend/ch-query"
 	"RandomForest/backend/models"
-	"database/sql"
-
-	"github.com/astaxie/beego"
 )
-
-//Connect - объект подключения к ClickHouse
-var Connect *sql.DB
 
 //EventDataController API Для работы с событиями
 type EventDataController struct {
-	beego.Controller
+	BaseController
 }
 
 // Get ...

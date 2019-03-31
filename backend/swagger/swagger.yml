@@ -276,8 +276,8 @@ tags:
   description: |
     EventDataController API Для работы с событиями
 - name: client
-  description: |2
-     API для работы с клиентом
+  description: |
+    ClientController API для работы с клиентом
 - name: company
   description: |
     CompaniController API Для работы с компаниями

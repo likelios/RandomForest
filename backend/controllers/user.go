@@ -3,18 +3,12 @@ package controllers
 import (
 	"RandomForest/backend/models"
 	"RandomForest/backend/mysql"
-	"database/sql"
 	"encoding/json"
-
-	"github.com/astaxie/beego"
 )
-
-//Connect - объект подключения к MySQL
-var MyConnect *sql.DB
 
 //UserController API Для работы с авторизации
 type UserController struct {
-	beego.Controller
+	BaseController
 }
 
 // Login ...

@@ -2,13 +2,11 @@ package controllers
 
 import (
 	"RandomForest/backend/mysql"
-
-	"github.com/astaxie/beego"
 )
 
-//  API для работы с клиентом
+//ClientController API для работы с клиентом
 type ClientController struct {
-	beego.Controller
+	BaseController
 }
 
 // GetOne ...
