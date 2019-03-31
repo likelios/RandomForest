@@ -276,6 +276,10 @@
                     "type": "integer",
                     "format": "int32"
                 },
+                "AreasIot": {
+                    "type": "integer",
+                    "format": "int32"
+                },
                 "CompanyID": {
                     "type": "integer",
                     "format": "int32"
@@ -300,6 +304,10 @@
                 },
                 "Name": {
                     "type": "string"
+                },
+                "Squares": {
+                    "type": "integer",
+                    "format": "int32"
                 },
                 "Sum": {
                     "type": "number",
@@ -373,6 +381,10 @@
                     "type": "integer",
                     "format": "int32"
                 },
+                "AreasIot": {
+                    "type": "integer",
+                    "format": "int32"
+                },
                 "CompanyID": {
                     "type": "integer",
                     "format": "int32"
@@ -395,6 +407,10 @@
                 },
                 "Name": {
                     "type": "string"
+                },
+                "Squares": {
+                    "type": "integer",
+                    "format": "int32"
                 },
                 "Sum": {
                     "type": "number",

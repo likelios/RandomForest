@@ -182,6 +182,9 @@ definitions:
       Areas:
         type: integer
         format: int32
+      AreasIot:
+        type: integer
+        format: int32
       CompanyID:
         type: integer
         format: int32
@@ -200,6 +203,9 @@ definitions:
         type: boolean
       Name:
         type: string
+      Squares:
+        type: integer
+        format: int32
       Sum:
         type: number
         format: float
@@ -250,6 +256,9 @@ definitions:
       Areas:
         type: integer
         format: int32
+      AreasIot:
+        type: integer
+        format: int32
       CompanyID:
         type: integer
         format: int32
@@ -266,6 +275,9 @@ definitions:
         type: boolean
       Name:
         type: string
+      Squares:
+        type: integer
+        format: int32
       Sum:
         type: number
         format: float

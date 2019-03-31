@@ -1,9 +1,9 @@
 package mysql
 
 import (
+	"RandomForest/backend/models"
 	"database/sql"
 	"fmt"
-	"RandomForest/backend/models"
 	"log"
 )
 
@@ -19,7 +19,9 @@ const ClientQuery = `select id,
 							company_id,
 							name,
 							contacts,
-							areas
+							areas,
+							areas_iot,
+							squares
 						from clients`
 
 //GetClient ...
@@ -50,6 +52,8 @@ func GetClient(connect *sql.DB, id string) (rs []models.NiceClient) {
 				&r.Name,
 				&r.Contacts,
 				&r.Areas,
+				&r.AreasIot,
+				&r.Squares,
 			)
 			rr = append(rr, r)
 		}
@@ -87,6 +91,8 @@ func GetClientByCompany(connect *sql.DB, id, condition string) (rs []models.Nice
 				&r.Name,
 				&r.Contacts,
 				&r.Areas,
+				&r.AreasIot,
+				&r.Squares,
 			)
 			rr = append(rr, r)
 		}
@@ -109,6 +115,8 @@ func prepareNiceClient(ob []models.Client) (rs []models.NiceClient) {
 			e.Name,
 			e.Contacts,
 			e.Areas,
+			e.AreasIot,
+			e.Squares,
 		})
 	}
 

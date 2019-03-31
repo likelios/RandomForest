@@ -14,6 +14,8 @@ type Client struct {
 	Name        string
 	Contacts    string
 	Areas       int32
+	AreasIot    int32
+	Squares     int32
 }
 
 //Client ...
@@ -28,4 +30,6 @@ type NiceClient struct {
 	Name        string
 	Contacts    string
 	Areas       int32
+	AreasIot    int32
+	Squares     int32
 }
