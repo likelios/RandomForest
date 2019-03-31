@@ -20,7 +20,7 @@ export default {
         labels: this.chartLabels,
         datasets: [{
           label: 'Влажность',
-          backgroundColor: '#f87979',
+          backgroundColor: 'green',
           pointBackgroundColor: 'white',
           borderWidth: 1,
           pointBorderColor: '#249EBF',

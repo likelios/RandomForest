@@ -1,55 +1,74 @@
 <template>
   <v-container grid-list-md text-xs-center>
 
-    <v-layout v-if="loading">
-      <v-flex md12 class="text-xs-center pt-5">
-        <v-progress-circular indeterminate :size="100" :width="4" color="purple">
-        </v-progress-circular>
-      </v-flex>
-    </v-layout>
+<!--    <v-layout v-if="loading">-->
+<!--      <v-flex md12 class="text-xs-center pt-5">-->
+<!--        <v-progress-circular indeterminate :size="100" :width="4" color="purple">-->
+<!--        </v-progress-circular>-->
+<!--      </v-flex>-->
+<!--    </v-layout>-->
 
-    <v-layout v-else>
-      <v-flex md12 class="text-xs-center">
-        <h1>Сводная информация </h1>
-      </v-flex>
-    </v-layout>
+    <!--    <v-layout v-else>-->
+    <!--      <v-flex md12 class="text-xs-center">-->
+    <!--        <h1>Сводная информация </h1>-->
+    <!--      </v-flex>-->
+    <!--    </v-layout>-->
+    <v-flex class="mt-5 ml-5">
+      <h1>Информация для клиента</h1>
+      <v-data-table
+        :headers="headers"
+        :items="getEvents"
+        class="elevation-1"
+      >
+        <template v-slot:items="props">
 
-    <v-layout justify-space-between fill-height>
-      <v-flex md6 class="mt-5">
-        <line-example v-if="loaded" :chart-data="value" :chart-labels="label"></line-example>
-        <v-divider class="mt-3 mb-3"></v-divider>
-        <wind-example v-if="loaded" :chart-data="valueHumidity" :chart-labels="labelHumidity"></wind-example>
-        <v-divider class="mt-3 mb-3"></v-divider>
-        <humidity-example v-if="loaded" :chart-data="valueWind" :chart-labels="labelWind"></humidity-example>
-      </v-flex>
-      <v-flex md6 class="mt-5 ml-5">
-        <h1>Информация для клиента</h1>
-        <v-data-table
-          :headers="headers"
-          :items="getEvents"
-          class="elevation-1"
-        >
-          <template v-slot:items="props">
+          <template v-if="props.item.temp > 35 && props.item.humidity < 30 ">
+            <td class="yellow">{{ props.item.deviceID }}</td>
+            <td class="text-xs-center yellow">{{ props.item.coord }}</td>
+            <td class="text-xs-center yellow">{{ props.item.temp }}</td>
+            <td class="text-xs-center yellow">{{ props.item.humidity }}</td>
+            <td class="text-xs-center yellow">{{ props.item.windSpeed }}</td>
+            <td class="text-xs-center yellow">
+              Повышается вероятность засухи
+            </td>
+          </template>
+
+          <template v-else>
             <td>{{ props.item.deviceID }}</td>
             <td class="text-xs-center">{{ props.item.coord }}</td>
             <td class="text-xs-center">{{ props.item.temp }}</td>
             <td class="text-xs-center">{{ props.item.humidity }}</td>
             <td class="text-xs-center">{{ props.item.windSpeed }}</td>
-            <td class="text-xs-center yellow"
-                v-if="props.item.temp > 35 && props.item.humidity < 30 ">
-              Повышается вероятность засухи
-            </td>
-            <td class="text-xs-center" v-else> Все норм</td>
+            <td class="text-xs-center" > Все норм</td>
           </template>
-        </v-data-table>
+
+        </template>
+      </v-data-table>
+    </v-flex>
+    <v-layout row>
+      <v-flex md4 class="mt-5">
+        <line-example v-if="loaded" :chart-data="value" :chart-labels="label"></line-example>
+        <v-divider class="mt-3 mb-3"></v-divider>
+
+      </v-flex>
+      <v-flex md4 class="mt-5">
+
+        <wind-example v-if="loaded" :chart-data="valueHumidity" :chart-labels="labelHumidity"></wind-example>
+        <v-divider class="mt-3 mb-3"></v-divider>
+      </v-flex>
+      <v-flex md4 class="mt-5">
+
+        <humidity-example v-if="loaded" :chart-data="valueWind" :chart-labels="labelWind"></humidity-example>
       </v-flex>
     </v-layout>
+
+
     <v-layout md12>
 
 
       <yandex-map
-        :coords="[54.62896654088406, 39.731893822753904]"
-        zoom="10"
+        :coords="[54.52407,39.561985]"
+        zoom="14"
         style="min-width: 1200px; height: 600px;"
         :cluster-options="{
     1: {clusterDisableClickZoom: true}
@@ -105,10 +124,65 @@
       return {
         placemarks: [
           {
-            coords: [54.8, 39.8],
+            coords: [54.52407, 39.561985],
             properties: {}, // define properties here
             options: {}, // define options here
             clusterName: "1",
+            balloonTemplate: '<div>"Тестовая карта"</div>',
+            callbacks: {
+              click: function () {
+              }
+            }
+          },
+          {
+            coords: [54.517914, 39.576096],
+            properties: {}, // define properties here
+            options: {}, // define options here
+            clusterName: "2",
+            balloonTemplate: '<div>"Тестовая карта"</div>',
+            callbacks: {
+              click: function () {
+              }
+            }
+          },
+          {
+            coords: [54.516083, 39.56138],
+            properties: {}, // define properties here
+            options: {}, // define options here
+            clusterName: "3",
+            balloonTemplate: '<div>"Тестовая карта"</div>',
+            callbacks: {
+              click: function () {
+              }
+            }
+          },
+          {
+            coords: [54.532787, 39.568123],
+            properties: {}, // define properties here
+            options: {}, // define options here
+            clusterName: "4",
+            balloonTemplate: '<div>"Тестовая карта"</div>',
+            callbacks: {
+              click: function () {
+              }
+            }
+          },
+          {
+            coords: [54.520874, 39.556076],
+            properties: {}, // define properties here
+            options: {}, // define options here
+            clusterName: "5",
+            balloonTemplate: '<div>"Тестовая карта"</div>',
+            callbacks: {
+              click: function () {
+              }
+            }
+          },
+          {
+            coords: [54.53126, 39.559067],
+            properties: {}, // define properties here
+            options: {}, // define options here
+            clusterName: "5",
             balloonTemplate: '<div>"Тестовая карта"</div>',
             callbacks: {
               click: function () {
@@ -181,6 +255,7 @@
           this.getHumiditys
           // this.loaded = true
         })
+
         this.$store.dispatch('getEvent')
         this.loaded = true
       }

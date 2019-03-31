@@ -19,7 +19,7 @@ export default {
         labels:  this.chartLabels,
         datasets: [{
           label: 'Сила ветра',
-          backgroundColor: '#f87979',
+          backgroundColor: 'orange',
           pointBackgroundColor: 'white',
           borderWidth: 1,
           pointBorderColor: '#249EBF',

@@ -23,7 +23,7 @@
             <td class="text-xs-center">{{ props.item.Name }}</td>
             <td class="text-xs-center">{{ props.item.Rating }}</td>
             <td class="text-xs-center">
-              <v-btn small color="green" style="color: white;">Посмотреть</v-btn>
+              <v-btn small color="green" to="/admin" style="color: white;">Посмотреть</v-btn>
             </td>
           </template>
         </v-data-table>
