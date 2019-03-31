@@ -209,10 +209,18 @@ definitions:
     title: Compani
     type: object
     properties:
+      Address:
+        type: string
+      Description:
+        type: string
+      Email:
+        type: string
       ID:
         type: integer
         format: int32
       Name:
+        type: string
+      Phone:
         type: string
       Rating:
         type: number

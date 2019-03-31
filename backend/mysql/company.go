@@ -1,9 +1,9 @@
 package mysql
 
 import (
+	"RandomForest/backend/models"
 	"database/sql"
 	"fmt"
-	"RandomForest/backend/models"
 	"log"
 )
 
@@ -11,7 +11,7 @@ import (
 //Params:
 //	%[1]v - Login
 //	%[2]v - Password
-const CompanyQuery = `select id, name, rating from companies`
+const CompanyQuery = `select id, name, rating, description, email, phone, address from companies`
 
 //GetCompany ...
 func GetCompany(connect *sql.DB, id string) (rs []models.Compani) {
@@ -33,6 +33,10 @@ func GetCompany(connect *sql.DB, id string) (rs []models.Compani) {
 				&r.ID,
 				&r.Name,
 				&r.Rating,
+				&r.Description,
+				&r.Email,
+				&r.Phone,
+				&r.Address,
 			)
 			rs = append(rs, r)
 		}

@@ -103,3 +103,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+backend/backend
+backend/hack-api
+backend/lastupdate.tmp
