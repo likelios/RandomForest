@@ -54,8 +54,6 @@ export default {
   },
   computed: {},
   mounted() {
-    // console.log(this.getJson)
-    //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options)
   },
 

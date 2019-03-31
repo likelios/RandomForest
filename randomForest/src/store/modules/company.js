@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://116.203.111.141/api/v1/';
+const url = 'http://116.203.112.27:8082/v1/';
 
 
 export default {
@@ -17,9 +17,9 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.post(url + 'companies')
+        axios.get(url + 'company')
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             commit('loadCompany', response.data);
             commit('setLoading', false);
           });
@@ -32,7 +32,8 @@ export default {
   },
   getters: {
     companyJson(state) {
-      return state.companyJson.companies
+      // console.log(state.companyJson)
+      return state.companyJson
     }
   }
 }

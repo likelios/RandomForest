@@ -40,7 +40,12 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        await axios.post(url + 'login', data)
+        await axios.post(url + 'login', data,{
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        })
           .then((response) => {
             // console.log(response.data);
             commit('setUser', new User(response.data));

@@ -1,6 +1,13 @@
 <template>
   <v-container text-xs-center>
-    <v-layout>
+    <v-layout v-if="loading">
+      <v-flex xs12 class="text-xs-center pt-5">
+        <v-progress-circular indeterminate :size="100" :width="4" color="purple">
+        </v-progress-circular>
+      </v-flex>
+    </v-layout>
+
+    <v-layout v-else>
       <v-flex md12>
         <h1>Список компаний</h1>
         <v-data-table
@@ -12,9 +19,12 @@
           sort-icon="mdi-menu-down"
         >
           <template v-slot:items="props">
-            <td>{{ props.item.id }}</td>
-            <td class="text-xs-center">{{ props.item.name }}</td>
-            <td class="text-xs-center">{{ props.item.rating }}</td>
+            <td>{{ props.item.ID }}</td>
+            <td class="text-xs-center">{{ props.item.Name }}</td>
+            <td class="text-xs-center">{{ props.item.Rating }}</td>
+            <td class="text-xs-center">
+              <v-btn small color="green" style="color: white;">Посмотреть</v-btn>
+            </td>
           </template>
         </v-data-table>
       </v-flex>
@@ -33,19 +43,12 @@
             text: 'ID',
             align: 'center',
             sortable: false,
-            value: 'id'
+            value: 'ID'
           },
-          {text: 'Название', value: 'name', align: 'center', sortable: false,},
-          {text: 'Рейтинг', value: 'rating', align: 'center'},
+          {text: 'Название', value: 'Name', align: 'center', sortable: false,},
+          {text: 'Рейтинг', value: 'Rating', align: 'center'},
+          {text: 'Ознакомиться с компанией', value: 'name', align: 'center', sortable: false}
         ],
-        // desserts:
-        //   [
-        //   {
-        //     id: 1,
-        //     name: 'Frozen Yogurt',
-        //     rating: 159,
-        //   },
-        // ]
       }
     },
     computed: {

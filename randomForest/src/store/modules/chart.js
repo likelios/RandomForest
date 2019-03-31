@@ -27,7 +27,7 @@ export default {
       try {
         await axios.get(url + 'Temp')
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             commit('loadTemp', response.data);
             commit('setLoading', false);
           });
@@ -43,7 +43,7 @@ export default {
       try {
         await axios.get(url + 'WindSpeed')
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             commit('loadWind', response.data);
             commit('setLoading', false);
           });
@@ -59,7 +59,7 @@ export default {
       try {
         await axios.get(url + 'Humidity')
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             commit('loadHumidity', response.data);
             commit('setLoading', false);
           });
@@ -76,11 +76,11 @@ export default {
       return state.tempJson
     },
     getWindJson(state) {
-      console.log(state.windJson)
+      // console.log(state.windJson)
       return state.windJson
     },
     getHumidityJson(state) {
-      console.log(state.HumidityJson)
+      // console.log(state.HumidityJson)
       return state.HumidityJson
     }
   }

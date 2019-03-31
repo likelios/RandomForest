@@ -3,19 +3,29 @@ import {Line} from 'vue-chartjs'
 
 export default {
   extends: Line,
+  props: {
+    chartData: {
+      type: Array ,
+      required: false
+    },
+    chartLabels: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       datacollection: {
         //Data to be represented on x-axis
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: this.chartLabels,
         datasets: [{
-          label: 'Data One',
+          label: 'Влажность',
           backgroundColor: '#f87979',
           pointBackgroundColor: 'white',
           borderWidth: 1,
           pointBorderColor: '#249EBF',
           //Data to be represented on y-axis
-          data: [40, 20, 30, 50, 90, 10, 20, 40, 50, 70, 90, 100]
+          data: this.chartData
         }]
       },
       //Chart.js options that controls the appearance of the chart
@@ -44,18 +54,10 @@ export default {
     }
   },
   computed: {
-    getHumidityJsons() {
-      this.$store.getters.getHumidityJson[0]
-    }
   },
-  // mounted() {
-  //
-  //   //renderChart function renders the chart with the datacollection and options object.
-  //   this.renderChart(this.datacollection, this.options)
-  // },
-  created() {
-    this.$store.dispatch('getHumidity').finally(()=>{
-      this.renderChart(this.datacollection, this.options)
-    })
-  }
+  mounted() {
+    //renderChart function renders the chart with the datacollection and options object.
+    this.renderChart(this.datacollection, this.options)
+  },
+
 }
