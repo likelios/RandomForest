@@ -197,6 +197,7 @@
 
         } else {
           return [
+            {title: 'Кабинет клиента', icon: 'perm_identity', url: '/client', count: ''},
             {title: 'Логин', icon: 'lock', url: '/login', count: ''},
             {title: 'Регистрация', icon: 'face', url: '/registration', count: ''},
           ]

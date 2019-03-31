@@ -8,7 +8,6 @@
           </v-toolbar>
           <v-card-text>
             <p>логин - client@serverfon.ru , пароль- 123456</p>
-            <!--            <p>логин - manager@talmer.ru , пароль- 123456</p>-->
             <v-form ref="form" v-model="valid" lazy-validation >
               <v-text-field
                 prepend-icon="person"
@@ -74,14 +73,13 @@
       onSubmit() {
         if (this.$refs.form.validate()) {
           const user = {
-            email: this.email,
-            password: this.password
+            Login: this.email,
+            PasswordHash: this.password
           };
 
           this.$store.dispatch('loginUser', user)
             .finally(() => {
               this.$router.go(-1)
-              // this.$store.dispatch('getTovarsJson', this.$store.getters.user.id);
             })
             .catch(err => {
               console.log(err)

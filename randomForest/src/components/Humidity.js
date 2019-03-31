@@ -1,8 +1,8 @@
+
 import {Line} from 'vue-chartjs'
 
 export default {
   extends: Line,
-  props: ['getJson'],
   data() {
     return {
       datacollection: {
@@ -15,7 +15,7 @@ export default {
           borderWidth: 1,
           pointBorderColor: '#249EBF',
           //Data to be represented on y-axis
-          data: this.getJson
+          data: [40, 20, 30, 50, 90, 10, 20, 40, 50, 70, 90, 100]
         }]
       },
       //Chart.js options that controls the appearance of the chart
@@ -44,20 +44,18 @@ export default {
     }
   },
   computed: {
-    // loading() {
-    //   return this.$store.getters.loading
-    // },
-    getTemps() {
-      console.log('13321')
-      return this.$store.getters.getTempJson[0]
+    getHumidityJsons() {
+      this.$store.getters.getHumidityJson[0]
     }
   },
-  mounted() {
-    // console.log(this.getJson)
-    //renderChart function renders the chart with the datacollection and options object.
-    this.renderChart(this.datacollection, this.options)
-  },
+  // mounted() {
+  //
+  //   //renderChart function renders the chart with the datacollection and options object.
+  //   this.renderChart(this.datacollection, this.options)
+  // },
   created() {
-    this.$store.dispatch('getTemp')
-  },
+    this.$store.dispatch('getHumidity').finally(()=>{
+      this.renderChart(this.datacollection, this.options)
+    })
+  }
 }

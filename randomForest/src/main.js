@@ -6,10 +6,15 @@ import Vuetify from 'vuetify'
 import * as axios from 'axios'
 import 'vuetify/dist/vuetify.min.css'
 import LineExample from './components/LineChart.js'
+import WindSpeed from './components/WindSpeed.js'
+import Humidity from './components/Humidity.js'
+import ref from 'vue-ref'
 
 import Vue2Storage from 'vue2-storage'
 
 Vue.component('line-example', LineExample);
+Vue.component('wind-example', WindSpeed);
+Vue.component('humidity-example', Humidity);
 Vue.use(Vuetify, {
   theme: {
     primary: '#4d5c7f'
@@ -17,7 +22,7 @@ Vue.use(Vuetify, {
 });
 
 Vue.config.productionTip = false;
-
+Vue.use(ref)
 Vue.use(Vue2Storage, {
   prefix: 'app_',
   driver: 'local',
