@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     getWindJsons() {
-      this.$store.getters.getWindJson[0]
+      this.$store.getters.getWindJson
     }
   },
   mounted() {

@@ -40,7 +40,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.post(url + 'login', data)
+        await axios.post(url + 'login', data)
           .then((response) => {
             // console.log(response.data);
             commit('setUser', new User(response.data));
@@ -57,7 +57,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.post(url + 'register', data)
+        await axios.post(url + 'register', data)
           .then((response) => {
             console.log(response.data);
             commit('setUser', new User(response.data.id));
@@ -69,9 +69,9 @@ export default {
         throw error
       }
     },
-    logoutUser({commit}) {
+    async logoutUser({commit}) {
       try {
-        axios.post(url + 'logout')
+        await axios.post(url + 'logout')
           .then(commit('setUser', null));
 
       } catch (error) {

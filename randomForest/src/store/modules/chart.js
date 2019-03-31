@@ -25,7 +25,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.get(url + 'Temp')
+        await axios.get(url + 'Temp')
           .then((response) => {
             console.log(response.data);
             commit('loadTemp', response.data);
@@ -41,7 +41,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.get(url + 'WindSpeed')
+        await axios.get(url + 'WindSpeed')
           .then((response) => {
             console.log(response.data);
             commit('loadWind', response.data);
@@ -57,7 +57,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.get(url + 'Humidity')
+        await axios.get(url + 'Humidity')
           .then((response) => {
             console.log(response.data);
             commit('loadHumidity', response.data);
@@ -72,7 +72,7 @@ export default {
   },
   getters: {
     getTempJson(state) {
-      console.log(state.tempJson.Date)
+      // console.log(state.tempJson.Date)
       return state.tempJson
     },
     getWindJson(state) {
