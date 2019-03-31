@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const url = 'http://116.203.112.27:8082/v1/event/1/';
 // (Temp; Humidity; WindSpeed)
-
+// /v1/event/grid/1
 export default {
   state: {
     tempJson: '',

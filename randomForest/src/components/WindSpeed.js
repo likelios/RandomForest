@@ -53,16 +53,16 @@ export default {
     }
   },
   computed: {
-    getWindJsons() {
-      this.$store.getters.getWindJson
-    }
+    // getWindJsons() {
+    //   this.$store.getters.getWindJson
+    // }
   },
   mounted() {
 
     //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options)
   },
-  created() {
-    this.$store.dispatch('getWind')
-  }
+  // created() {
+  //   this.$store.dispatch('getWind')
+  // }
 }

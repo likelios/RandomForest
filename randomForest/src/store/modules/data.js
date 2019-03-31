@@ -1,28 +1,26 @@
 import axios from 'axios'
 
-const url = 'http://116.203.112.27:8082/v1/';
-
-
+const url = 'http://116.203.112.27:8082/v1/event/';
 export default {
   state: {
-    companyJson: ''
+    getEvent: '',
   },
   mutations: {
-    loadCompany(state, payload) {
-      state.companyJson = payload
+    loadEvent(state, payload) {
+      state.getEvent = payload
     },
+
   },
   actions: {
-    async getComponyJson({commit}) {
+    async getEvent({commit}) {
       commit('clearError');
       commit('setLoading', true);
       try {
-        axios.get(url + 'company')
+        await axios.get(url + '/grid/1')
           .then((response) => {
-            // console.log(response.data);
-            commit('loadCompany', response.data);
+            console.log(response.data);
+            commit('loadEvent', response.data);
             commit('setLoading', false);
-
           });
       } catch (error) {
         commit('setLoading', false);
@@ -32,9 +30,9 @@ export default {
     },
   },
   getters: {
-    companyJson(state) {
-      // console.log(state.companyJson)
-      return state.companyJson
-    }
+    getEventJson(state) {
+      // console.log(state.getEvent)
+      return state.getEvent
+    },
   }
 }

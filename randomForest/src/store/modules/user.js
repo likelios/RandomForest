@@ -6,7 +6,7 @@ class User {
   }
 }
 
-const url = 'http://116.203.112.27:8082/v1/user/';
+const url = 'http://116.203.111.141/v1/user/';
 
 export default {
   state: {

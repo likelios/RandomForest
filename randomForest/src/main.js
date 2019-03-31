@@ -9,9 +9,17 @@ import LineExample from './components/LineChart.js'
 import WindSpeed from './components/WindSpeed.js'
 import Humidity from './components/Humidity.js'
 import ref from 'vue-ref'
+import YmapPlugin from 'vue-yandex-maps'
 
 import Vue2Storage from 'vue2-storage'
 
+
+const options = { // you may define your apiKey, lang and version or skip this.
+  apiKey: '6de7b20a-4375-48d0-8efe-c42fb8a4cbe9', // '' by default
+  lang: 'ru_RU', // 'ru_RU' by default
+  version: '2.1' // '2.1' by default
+};
+Vue.use(YmapPlugin, options)
 Vue.component('line-example', LineExample);
 Vue.component('wind-example', WindSpeed);
 Vue.component('humidity-example', Humidity);

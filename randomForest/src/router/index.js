@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Login from '../components/Auth/Login'
 import client from '../components/lk/client'
+import admin from '../components/lk/admin'
 import Registration from '../components/Auth/Registration'
 import AuthGuard from './authGuard'
 
@@ -19,6 +20,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: admin
     },
     {
       path: '/registration',
