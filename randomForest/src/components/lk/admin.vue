@@ -32,16 +32,19 @@
       >
         <v-data-table
           :headers="headers"
-          :items="desserts"
+          :items="getClientAllJsons"
           class="elevation-1"
         >
           <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="text-xs-right">{{ props.item.iron }}</td>
+            <td>{{ props.item.ID }}</td>
+            <td class="text-xs-center">{{ props.item.Name }}</td>
+            <td class="text-xs-center">{{ props.item.DateEnd }}</td>
+            <td class="text-xs-center">{{ props.item.Type }}</td>
+            <td class="text-xs-center">{{ props.item.Contacts }}</td>
+            <td class="text-xs-center">{{ props.item.Sum }}</td>
+            <td class="text-xs-center">
+              <v-btn small color="green" style="color: white;">Посмотреть</v-btn>
+            </td>
           </template>
         </v-data-table>
       </v-tab-item>
@@ -54,12 +57,15 @@
           class="elevation-1"
         >
           <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="text-xs-right">{{ props.item.iron }}</td>
+            <td>{{ props.item.ID }}</td>
+            <td class="text-xs-center">{{ props.item.Name }}</td>
+            <td class="text-xs-center">{{ props.item.DateEnd }}</td>
+            <td class="text-xs-center">{{ props.item.Type }}</td>
+            <td class="text-xs-center">{{ props.item.Contacts }}</td>
+            <td class="text-xs-center">{{ props.item.Sum }}</td>
+            <td class="text-xs-center">
+              <v-btn small color="green" style="color: white;">Посмотреть</v-btn>
+            </td>
           </template>
         </v-data-table>
       </v-tab-item>
@@ -74,36 +80,29 @@
       return {
         headers: [
           {
-            text: 'Dessert (100g serving)',
-            align: 'left',
+            text: 'ID',
+            align: 'center',
             sortable: false,
-            value: 'name'
+            value: 'ID'
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' }
+          {text: 'Имя', value: 'Name', align: 'center', sortable: false},
+          {text: 'Окончание полиса', value: 'DateEnd', align: 'center', sortable: false},
+          {text: 'Юридическая форма', value: 'Type', align: 'center', sortable: false},
+          {text: 'Контакты', value: 'Contacts', align: 'center', sortable: false},
+          {text: 'Стоимость полиса', value: 'Sum', align: 'center'},
+          {text: 'Ознакомиться с компанией', value: '', align: 'center', sortable: false}
+
         ],
-        desserts:[
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%'
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%'
-          },
-        ]
+        desserts: this.getClientAllJsons
       }
+    },
+    computed: {
+     getClientAllJsons() {
+        return this.$store.getters.getClientAllJson
+      },
+    },
+    created() {
+      this.$store.dispatch('getClientAll')
     }
   }
 </script>
