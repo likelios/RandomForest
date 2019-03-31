@@ -6,7 +6,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-//  CompaniController operations for Compani
+//CompaniController API Для работы с компаниями
 type CompaniController struct {
 	beego.Controller
 }

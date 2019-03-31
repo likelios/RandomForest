@@ -6,7 +6,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-//  ClientController operations for Client
+//  API для работы с клиентом
 type ClientController struct {
 	beego.Controller
 }

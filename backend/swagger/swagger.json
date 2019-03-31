@@ -1,17 +1,10 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "beego Test API",
-        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "title": "Случайны лес API",
+        "description": "API подготовленное командой Случайный лес",
         "version": "1.0.0",
-        "termsOfService": "http://beego.me/",
-        "contact": {
-            "email": "astaxie@gmail.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        }
+        "contact": {}
     },
     "basePath": "/v1",
     "paths": {
@@ -404,19 +397,19 @@
     "tags": [
         {
             "name": "event",
-            "description": "EventDataController operations for Event-Data\n"
+            "description": "EventDataController API Для работы с событиями\n"
         },
         {
             "name": "client",
-            "description": " ClientController operations for Client\n"
+            "description": " API для работы с клиентом\n"
         },
         {
             "name": "company",
-            "description": " CompaniController operations for Compani\n"
+            "description": "CompaniController API Для работы с компаниями\n"
         },
         {
             "name": "user",
-            "description": " UserController operations for User\n"
+            "description": "UserController API Для работы с авторизации\n"
         }
     ]
 }

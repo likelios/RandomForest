@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"database/sql"
-	"encoding/json"
 	"RandomForest/backend/models"
 	"RandomForest/backend/mysql"
+	"database/sql"
+	"encoding/json"
 
 	"github.com/astaxie/beego"
 )
@@ -12,7 +12,7 @@ import (
 //Connect - объект подключения к MySQL
 var MyConnect *sql.DB
 
-//  UserController operations for User
+//UserController API Для работы с авторизации
 type UserController struct {
 	beego.Controller
 }
